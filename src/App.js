@@ -1,11 +1,15 @@
+import React, { useState } from 'react';
+import Gallery from './components/Gallery/Gallery';
+import Modal from './components/Modal/Modal';
 import './App.css';
-import Gallery from './components/Gallery';
 
 function App() {
+  const [selectedImg, setSeletectedImg] = useState(false);
+  
   return (
     <div className="App">
-      <h1>Wall Gallery</h1>
-      <Gallery />
+      <Gallery clickedImg={setSeletectedImg} />
+      { selectedImg ? <Modal selectedImg={selectedImg} closeModal={setSeletectedImg} /> : null }
     </div>
   );
 }
